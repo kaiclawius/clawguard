@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ClawGuard — Security Shield for OpenClaw</title>
+<meta name="description" content="Protect your OpenClaw from malicious skills, prompt injection attacks, and unauthorized tampering. One install. Always on.">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #08080f;
+    --card: #0f0f1a;
+    --border: #1a1a2e;
+    --text: #e0e0e0;
+    --muted: #666;
+    --accent: #7c3aed;
+    --accent2: #6366f1;
+    --green: #22c55e;
+    --red: #ef4444;
+  }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+  }
+  a { color: var(--accent2); text-decoration: none; }
+
+  /* NAV */
+  nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 40px;
+    border-bottom: 1px solid var(--border);
+    position: sticky; top: 0;
+    background: rgba(8,8,15,.92);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+  }
+  .logo { font-size: 1.1rem; font-weight: 700; color: #fff; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; gap: 24px; align-items: center; }
+  .nav-links a { color: var(--muted); font-size: .9rem; transition: color .15s; }
+  .nav-links a:hover { color: #fff; }
+  .btn-nav {
+    background: var(--accent); color: #fff !important;
+    padding: 8px 18px; border-radius: 8px;
+    font-size: .88rem; font-weight: 600;
+    transition: opacity .15s;
+  }
+  .btn-nav:hover { opacity: .85; }
+
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 100px 24px 80px;
+    max-width: 780px; margin: 0 auto;
+  }
+  .badge {
+    display: inline-block;
+    background: #1a0a2e; color: #a78bfa;
+    border: 1px solid #3b1a6e;
+    padding: 4px 14px; border-radius: 99px;
+    font-size: .78rem; font-weight: 600;
+    margin-bottom: 24px; letter-spacing: .04em;
+  }
+  h1 {
+    font-size: clamp(2.2rem, 5vw, 3.4rem);
+    font-weight: 800; line-height: 1.15;
+    color: #fff; margin-bottom: 20px;
+  }
+  h1 em { font-style: normal; color: var(--accent); }
+  .hero-sub {
+    font-size: 1.15rem; color: var(--muted);
+    max-width: 560px; margin: 0 auto 40px;
+  }
+  .hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    padding: 14px 28px; border-radius: 10px;
+    font-size: .95rem; font-weight: 700;
+    cursor: pointer; border: none;
+    transition: opacity .15s, transform .1s;
+  }
+  .btn:hover { opacity: .88; transform: translateY(-1px); }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-secondary {
+    background: transparent; color: var(--text);
+    border: 1px solid var(--border);
+  }
+  .install-box {
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 10px; padding: 14px 20px;
+    font-family: 'Consolas', monospace;
+    font-size: .9rem; color: #a5b4fc;
+    margin: 32px auto 0;
+    max-width: 400px; text-align: left;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .install-box span { color: var(--muted); font-size: .8rem; cursor: pointer; }
+
+  /* THREAT BAR */
+  .threat-bar {
+    background: #0a0510;
+    border-top: 1px solid #1a0a2e;
+    border-bottom: 1px solid #1a0a2e;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .threat-stats {
+    display: flex; justify-content: center;
+    gap: 48px; flex-wrap: wrap;
+    max-width: 700px; margin: 0 auto;
+  }
+  .stat-item { text-align: center; }
+  .stat-num { font-size: 2rem; font-weight: 800; color: var(--red); }
+  .stat-label { font-size: .8rem; color: var(--muted); margin-top: 2px; }
+
+  /* FEATURES */
+  .section {
+    max-width: 1000px; margin: 0 auto;
+    padding: 80px 24px;
+  }
+  .section-label {
+    text-align: center;
+    font-size: .8rem; font-weight: 600;
+    color: var(--accent2); letter-spacing: .1em;
+    text-transform: uppercase; margin-bottom: 12px;
+  }
+  h2 {
+    text-align: center;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 800; color: #fff;
+    margin-bottom: 48px;
+  }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .feature-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px; padding: 24px;
+    transition: border-color .2s;
+  }
+  .feature-card:hover { border-color: var(--accent); }
+  .feature-icon { font-size: 2rem; margin-bottom: 14px; }
+  .feature-card h3 { font-size: 1rem; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .feature-card p { font-size: .88rem; color: var(--muted); line-height: 1.5; }
+
+  /* PRICING */
+  .pricing-section {
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 80px 24px;
+    text-align: center;
+  }
+  .price-card {
+    background: var(--bg);
+    border: 2px solid var(--accent);
+    border-radius: 20px; padding: 40px;
+    max-width: 380px; margin: 0 auto;
+    position: relative;
+  }
+  .price-tag {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--accent); color: #fff;
+    font-size: .75rem; font-weight: 700;
+    padding: 4px 16px; border-radius: 99px;
+    letter-spacing: .05em;
+  }
+  .price-amount { font-size: 3.5rem; font-weight: 900; color: #fff; line-height: 1; }
+  .price-amount span { font-size: 1.5rem; vertical-align: top; margin-top: 8px; display: inline-block; }
+  .price-period { color: var(--muted); font-size: .9rem; margin: 4px 0 24px; }
+  .price-features { list-style: none; text-align: left; margin-bottom: 28px; }
+  .price-features li {
+    padding: 8px 0; border-bottom: 1px solid var(--border);
+    font-size: .9rem; display: flex; gap: 10px; align-items: center;
+  }
+  .price-features li:last-child { border-bottom: none; }
+  .check { color: var(--green); }
+
+  /* HOW IT WORKS */
+  .steps { display: flex; flex-direction: column; gap: 16px; max-width: 600px; margin: 0 auto; }
+  .step {
+    display: flex; gap: 20px; align-items: flex-start;
+    background: var(--card); border: 1px solid var(--border);
+    border-radius: 12px; padding: 20px;
+  }
+  .step-num {
+    background: var(--accent); color: #fff;
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: .9rem; flex-shrink: 0;
+  }
+  .step h3 { font-size: .95rem; font-weight: 700; color: #fff; margin-bottom: 4px; }
+  .step p { font-size: .85rem; color: var(--muted); }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 40px;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 16px;
+    color: var(--muted); font-size: .85rem;
+  }
+  .footer-links { display: flex; gap: 20px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Claw<span>Guard</span></div>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#how">How it works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="https://github.com/kaiclawius/clawguard" target="_blank">GitHub</a>
+    <a href="#pricing" class="btn-nav">Get ClawGuard →</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="badge">🛡️ OpenClaw Security</div>
+  <h1>Your OpenClaw.<br><em>Defended.</em></h1>
+  <p class="hero-sub">
+    One skill. Four layers of protection. Scan skills before you install them,
+    guard your SOUL.md from tampering, and block prompt injection attacks in real time.
+  </p>
+  <div class="hero-actions">
+    <a href="#pricing" class="btn btn-primary">Get ClawGuard Pro — $29</a>
+    <a href="https://github.com/kaiclawius/clawguard" class="btn btn-secondary" target="_blank">View on GitHub</a>
+  </div>
+  <div class="install-box">
+    <code>npx clawhub install clawguard</code>
+    <span onclick="navigator.clipboard.writeText('npx clawhub install clawguard')">copy</span>
+  </div>
+</section>
+
+<div class="threat-bar">
+  <div class="threat-stats">
+    <div class="stat-item">
+      <div class="stat-num">820+</div>
+      <div class="stat-label">Malicious skills on ClawHub</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">30K+</div>
+      <div class="stat-label">Exposed OpenClaw instances</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">CVSS 8.8</div>
+      <div class="stat-label">Critical CVE-2026-25253</div>
+    </div>
+  </div>
+</div>
+
+<section class="section" id="features">
+  <div class="section-label">Protection</div>
+  <h2>Four layers. Zero compromise.</h2>
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🔍</div>
+      <h3>Skill Scanner</h3>
+      <p>Static analysis of any skill before you install it. Detects exfiltration, obfuscated code, crypto miners, and 15+ other threat patterns.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔐</div>
+      <h3>SOUL.md Guard</h3>
+      <p>Your identity file is sacred. ClawGuard hashes it on setup and alerts you immediately if anything — or anyone — changes it.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🛡️</div>
+      <h3>Injection Detector</h3>
+      <p>Real-time scanning for prompt injection patterns. Catches jailbreaks, instruction overrides, and social engineering attempts before they reach your agent.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📊</div>
+      <h3>Security Report</h3>
+      <p>On-demand full security posture report. Know exactly what's running, what's protected, and where you stand.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pricing-section" id="pricing">
+  <div class="section-label">Pricing</div>
+  <h2>Simple. One-time. Yours forever.</h2>
+  <div class="price-card">
+    <div class="price-tag">CLAWGUARD PRO</div>
+    <div class="price-amount"><span>$</span>29</div>
+    <div class="price-period">one-time payment · no subscription</div>
+    <ul class="price-features">
+      <li><span class="check">✓</span> Skill Scanner (full pattern library)</li>
+      <li><span class="check">✓</span> SOUL.md Integrity Guard</li>
+      <li><span class="check">✓</span> Prompt Injection Detector</li>
+      <li><span class="check">✓</span> Security Report</li>
+      <li><span class="check">✓</span> All future updates included</li>
+      <li><span class="check">✓</span> Runs 100% locally — your data stays yours</li>
+    </ul>
+    <a href="#" class="btn btn-primary" style="display:block;text-align:center;width:100%;">Buy Now — $29 →</a>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="section-label">Setup</div>
+  <h2>Running in 30 seconds.</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <h3>Install ClawGuard</h3>
+        <p>Run <code style="color:#a5b4fc">npx clawhub install clawguard</code> in your OpenClaw workspace.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <h3>Initialize protection</h3>
+        <p>Tell your agent: <em>"Initialize ClawGuard"</em> — it sets your SOUL.md baseline and activates monitoring.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <h3>Scan before you install</h3>
+        <p>Before installing any skill: <em>"Scan this skill for me"</em> — ClawGuard checks it and gives you a clear verdict.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div>
+        <h3>Stay protected</h3>
+        <p>Ask for a security report anytime: <em>"ClawGuard status"</em> — full picture in seconds.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>© 2026 ClawGuard · Built by <a href="https://x.com/KClawius">@KClawius</a></div>
+  <div class="footer-links">
+    <a href="https://github.com/kaiclawius/clawguard" target="_blank">GitHub</a>
+    <a href="https://x.com/KClawius" target="_blank">Twitter</a>
+  </div>
+</footer>
+
+</body>
+</html>
