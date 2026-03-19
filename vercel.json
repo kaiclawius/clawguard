@@ -1,1 +1,10 @@
-{"version":2,"builds":[{"src":"index.html","use":"@vercel/static"}],"routes":[{"src":"(.*)","dest":"$1"}]}
+﻿{
+  "version": 2,
+  "functions": {
+    "api/waitlist.js": { "runtime": "node" }
+  },
+  "routes": [
+    { "src": "/api/waitlist", "dest": "/api/waitlist.js" },
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
+}
