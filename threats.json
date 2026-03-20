@@ -1,0 +1,214 @@
+{
+  "version": "1.0.0",
+  "updatedAt": "2026-03-20",
+  "tier": "free",
+  "description": "ClawGuard Free Tier — 25 core threat patterns. Upgrade to Pro for 150+ patterns with monthly updates.",
+  "patterns": [
+    {
+      "id": "CG-001",
+      "category": "exfiltration",
+      "severity": "HIGH",
+      "description": "Credential exfiltration via HTTP",
+      "pattern": "https?:\\/\\/(?!openclaw\\.ai|clawhub\\.ai)[a-z0-9.-]+\\/[^\\s\"']*(key|token|secret|password|credential)",
+      "flags": "i"
+    },
+    {
+      "id": "CG-002",
+      "category": "exfiltration",
+      "severity": "HIGH",
+      "description": "curl with data payload — possible exfiltration",
+      "pattern": "curl\\s+.*(-d|--data|--data-raw)",
+      "flags": "i"
+    },
+    {
+      "id": "CG-003",
+      "category": "exfiltration",
+      "severity": "HIGH",
+      "description": "Fetch call sending sensitive data externally",
+      "pattern": "fetch\\([^)]*password|fetch\\([^)]*secret|fetch\\([^)]*api.?key",
+      "flags": "i"
+    },
+    {
+      "id": "CG-004",
+      "category": "system_access",
+      "severity": "MEDIUM",
+      "description": "Uses child_process module — can run system commands",
+      "pattern": "require\\s*\\(\\s*['\"]child_process['\"]\\s*\\)",
+      "flags": "i"
+    },
+    {
+      "id": "CG-005",
+      "category": "system_access",
+      "severity": "MEDIUM",
+      "description": "Executes system commands",
+      "pattern": "exec\\s*\\(|execSync\\s*\\(|spawn\\s*\\(",
+      "flags": "i"
+    },
+    {
+      "id": "CG-006",
+      "category": "system_access",
+      "severity": "MEDIUM",
+      "description": "Deletes files — destructive operation",
+      "pattern": "fs\\.(unlink|rmdir|rm)\\s*\\(",
+      "flags": "i"
+    },
+    {
+      "id": "CG-007",
+      "category": "system_access",
+      "severity": "LOW",
+      "description": "Reads environment variables — may access secrets",
+      "pattern": "process\\.env",
+      "flags": "i"
+    },
+    {
+      "id": "CG-008",
+      "category": "prompt_injection",
+      "severity": "HIGH",
+      "description": "Classic instruction override attempt",
+      "pattern": "ignore\\s+(all\\s+)?(previous|prior|above)\\s+instructions",
+      "flags": "i"
+    },
+    {
+      "id": "CG-009",
+      "category": "prompt_injection",
+      "severity": "MEDIUM",
+      "description": "Attempts to redefine agent identity",
+      "pattern": "you\\s+are\\s+now\\s+(a\\s+)?(?!an?\\s+OpenClaw)",
+      "flags": "i"
+    },
+    {
+      "id": "CG-010",
+      "category": "prompt_injection",
+      "severity": "HIGH",
+      "description": "Instruction disregard attack",
+      "pattern": "disregard\\s+(your\\s+)?(previous|prior|system)\\s+(prompt|instructions)",
+      "flags": "i"
+    },
+    {
+      "id": "CG-011",
+      "category": "prompt_injection",
+      "severity": "HIGH",
+      "description": "Known jailbreak terminology",
+      "pattern": "\\bDAN\\b|do\\s+anything\\s+now",
+      "flags": "i"
+    },
+    {
+      "id": "CG-012",
+      "category": "obfuscation",
+      "severity": "HIGH",
+      "description": "Dynamic code execution via eval — major red flag",
+      "pattern": "eval\\s*\\(|Function\\s*\\(.*\\)\\s*\\(",
+      "flags": "i"
+    },
+    {
+      "id": "CG-013",
+      "category": "obfuscation",
+      "severity": "MEDIUM",
+      "description": "Base64 decoding — possible code obfuscation",
+      "pattern": "Buffer\\.from\\([^)]+,\\s*['\"]base64['\"]\\)",
+      "flags": "i"
+    },
+    {
+      "id": "CG-014",
+      "category": "crypto_mining",
+      "severity": "HIGH",
+      "description": "Crypto mining indicators",
+      "pattern": "xmrig|monero|hashrate|\\bmine\\b.*crypto|crypto.*\\bmine\\b",
+      "flags": "i"
+    },
+    {
+      "id": "CG-015",
+      "category": "network",
+      "severity": "MEDIUM",
+      "description": "Raw TCP connections",
+      "pattern": "net\\.connect|net\\.createConnection",
+      "flags": "i"
+    },
+    {
+      "id": "CG-016",
+      "category": "soul_tampering",
+      "severity": "HIGH",
+      "description": "Attempts to modify SOUL.md",
+      "pattern": "SOUL\\.md.*write|writeFile.*SOUL|fs\\..*SOUL",
+      "flags": "i"
+    },
+    {
+      "id": "CG-017",
+      "category": "soul_tampering",
+      "severity": "HIGH",
+      "description": "Attempts to overwrite identity files",
+      "pattern": "writeFile.*IDENTITY|writeFile.*MEMORY|overwrite.*soul",
+      "flags": "i"
+    },
+    {
+      "id": "CG-018",
+      "category": "prompt_injection",
+      "severity": "HIGH",
+      "description": "Fake system prompt injection",
+      "pattern": "\\[system\\]|\\[instructions?\\]|\\[admin\\]|\\[override\\]",
+      "flags": "i"
+    },
+    {
+      "id": "CG-019",
+      "category": "exfiltration",
+      "severity": "HIGH",
+      "description": "WebSocket exfiltration attempt",
+      "pattern": "new WebSocket\\([^)]*https?:\\/\\/(?!openclaw\\.ai|clawhub\\.ai)",
+      "flags": "i"
+    },
+    {
+      "id": "CG-020",
+      "category": "system_access",
+      "severity": "HIGH",
+      "description": "Attempts to read credential files",
+      "pattern": "\\.ssh\\/|id_rsa|id_ed25519|\\.env\\b|credentials\\.json",
+      "flags": "i"
+    },
+    {
+      "id": "CG-021",
+      "category": "obfuscation",
+      "severity": "HIGH",
+      "description": "Hex-encoded strings — common obfuscation technique",
+      "pattern": "\\\\x[0-9a-f]{2}(\\\\x[0-9a-f]{2}){4,}",
+      "flags": "i"
+    },
+    {
+      "id": "CG-022",
+      "category": "network",
+      "severity": "MEDIUM",
+      "description": "DNS lookup — possible C2 communication",
+      "pattern": "dns\\.resolve|dns\\.lookup.*callback",
+      "flags": "i"
+    },
+    {
+      "id": "CG-023",
+      "category": "prompt_injection",
+      "severity": "MEDIUM",
+      "description": "Prompt extraction attempt",
+      "pattern": "reveal\\s+(your\\s+)?(system\\s+prompt|instructions?|soul)",
+      "flags": "i"
+    },
+    {
+      "id": "CG-024",
+      "category": "system_access",
+      "severity": "HIGH",
+      "description": "Writes to OpenClaw config directory",
+      "pattern": "writeFile.*\\.openclaw|appendFile.*\\.openclaw",
+      "flags": "i"
+    },
+    {
+      "id": "CG-025",
+      "category": "exfiltration",
+      "severity": "HIGH",
+      "description": "Sends file contents to external service",
+      "pattern": "readFile.*then.*fetch|readFileSync.*fetch",
+      "flags": "i"
+    }
+  ],
+  "pro_teaser": {
+    "total_pro_patterns": 150,
+    "additional_categories": ["ransomware", "persistence", "lateral_movement", "advanced_injection", "social_engineering"],
+    "update_frequency": "monthly",
+    "upgrade_url": "https://clawguard-eta.vercel.app/#waitlist"
+  }
+}
