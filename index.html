@@ -221,7 +221,7 @@
 </nav>
 
 <section class="hero">
-  <div class="badge">🛡️ OpenClaw Security</div>
+  <div style="display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:24px;"><div class="badge" style="margin-bottom:0">🛡️ OpenClaw Security</div><div class="badge" style="background:#0a2010;color:#4ade80;border-color:#14532d;margin-bottom:0">⚡ Zero API Tokens</div></div>
   <h1>Your OpenClaw.<br><em>Defended.</em></h1>
   <p class="hero-sub">
     One skill. Four layers of protection. Scan skills before you install them,
@@ -281,6 +281,32 @@
   </div>
 </section>
 
+
+<section class="section" style="padding-top:0;padding-bottom:0;">
+  <div style="background:#050f05;border:1px solid #14532d;border-radius:16px;padding:40px;max-width:720px;margin:0 auto 60px;text-align:center;">
+    <div style="font-size:2.5rem;margin-bottom:16px;">⚡</div>
+    <h2 style="font-size:1.5rem;margin-bottom:16px;color:#fff;text-align:center;">Zero API Tokens. Ever.</h2>
+    <p style="color:#666;max-width:500px;margin:0 auto 28px;line-height:1.7;">
+      Most security tools call an AI API to analyze your code — burning your tokens on every scan.
+      ClawGuard runs 100% locally. Pure Node.js pattern matching. No API calls. No data leaves your machine. No hidden costs.
+    </p>
+    <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap;margin-bottom:20px;">
+      <div>
+        <div style="font-size:2rem;font-weight:800;color:#4ade80;">0</div>
+        <div style="font-size:.8rem;color:#555;">API calls per scan</div>
+      </div>
+      <div>
+        <div style="font-size:2rem;font-weight:800;color:#4ade80;">96ms</div>
+        <div style="font-size:.8rem;color:#555;">average scan time</div>
+      </div>
+      <div>
+        <div style="font-size:2rem;font-weight:800;color:#4ade80;">100%</div>
+        <div style="font-size:.8rem;color:#555;">local execution</div>
+      </div>
+    </div>
+    <p style="font-size:.8rem;color:#444;font-family:monospace;">✅ Verified: 0 external API calls detected during scan (96ms, Node.js only)</p>
+  </div>
+</section>
 <section class="pricing-section" id="pricing">
   <div class="section-label">Pricing</div>
   <h2>Simple. One-time. Yours forever.</h2>
