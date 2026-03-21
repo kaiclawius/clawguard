@@ -101,21 +101,44 @@ function isPatternDefinitionLine(line) {
 function scanContent(content, filePath, patterns) {
   const findings = [];
   const lines = content.split('\n');
+  const ext = path.extname(filePath).toLowerCase();
+  const fileName = path.basename(filePath).toLowerCase();
 
-  // If this is a ClawGuard scanner file, suppress self-referential matches on pattern-definition lines.
+  // Suppress self-referential matches in scanner files
   const isScannerFile = content.includes('// CLAWGUARD_SCANNER');
+
+  // Markdown files (README, CONTRIBUTING, docs) — downgrade severity
+  // Attack patterns in docs = examples, not actual threats
+  const isDocFile = ext === '.md' || ext === '.txt' || fileName === 'readme' || fileName === 'contributing';
+
+  // Pattern/threat definition files — skip entirely
+  const isPatternFile = fileName.includes('patterns') || fileName.includes('threats') || fileName.includes('rules');
+  if (isPatternFile) return findings;
+
+  // Skip test/example directories
+  const normalizedPath = filePath.replace(/\\/g, '/');
+  const isTestFile = /\/(test|tests|examples?|fixtures?|mocks?|spec)\//.test(normalizedPath);
 
   for (const { pattern, severity, description } of patterns) {
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
 
       if (isScannerFile && isPatternDefinitionLine(line)) continue;
+      if (isTestFile && severity !== 'HIGH') continue; // only flag HIGH in test files
 
       if (pattern.test(line)) {
+        // Downgrade severity for documentation files
+        let effectiveSeverity = severity;
+        if (isDocFile) {
+          if (severity === 'HIGH') effectiveSeverity = 'MEDIUM';
+          else if (severity === 'MEDIUM') effectiveSeverity = 'LOW';
+          else continue; // skip LOW findings in docs
+        }
+
         findings.push({
           file: filePath,
           line: i + 1,
-          severity,
+          severity: effectiveSeverity,
           description,
           snippet: line.trim().substring(0, 100)
         });

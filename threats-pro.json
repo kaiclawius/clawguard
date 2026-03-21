@@ -8,8 +8,8 @@
       "id": "CG-026",
       "category": "advanced_prompt_injection",
       "severity": "HIGH",
-      "description": "Zero-width Unicode chars hiding injected instructions",
-      "pattern": "[\u200B\u200C\u200D\uFEFF\u2060\u180E]",
+      "description": "Multiple zero-width Unicode chars — likely hidden text injection",
+      "pattern": "[\\u200B\\u200C\\u200D\\uFEFF]{2,}|[\\u200B\\u200C\\u200D\\uFEFF][a-zA-Z]",
       "flags": "i"
     },
     {

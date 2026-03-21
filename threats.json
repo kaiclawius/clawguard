@@ -160,8 +160,8 @@
       "id": "CG-020",
       "category": "system_access",
       "severity": "HIGH",
-      "description": "Attempts to read credential files",
-      "pattern": "\\.ssh\\/|id_rsa|id_ed25519|\\.env\\b|credentials\\.json",
+      "description": "Reads actual credential files (SSH keys, AWS, .env)",
+      "pattern": "\\\\.ssh\\\\/id_rsa|\\\\.ssh\\\\/id_ed25519|credentials\\\\.json|\\\\.aws\\\\/credentials|readFileSync.*\\\\.env\\\\b",
       "flags": "i"
     },
     {
@@ -207,7 +207,13 @@
   ],
   "pro_teaser": {
     "total_pro_patterns": 150,
-    "additional_categories": ["ransomware", "persistence", "lateral_movement", "advanced_injection", "social_engineering"],
+    "additional_categories": [
+      "ransomware",
+      "persistence",
+      "lateral_movement",
+      "advanced_injection",
+      "social_engineering"
+    ],
     "update_frequency": "monthly",
     "upgrade_url": "https://clawguard-eta.vercel.app/#waitlist"
   }

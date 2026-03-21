@@ -1,0 +1,354 @@
+{
+  "findings": [
+    {
+      "slug": "security-auditor",
+      "verdict": "DANGEROUS",
+      "exitCode": 2,
+      "highCount": 1,
+      "medCount": 1,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:122",
+          "file": "SKILL.md:122",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "SKILL.md:265",
+          "file": "SKILL.md:265",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "SKILL.md:331",
+          "file": "SKILL.md:331",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "SKILL.md:134",
+          "file": "SKILL.md:134",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T08:30:28.318Z"
+    },
+    {
+      "slug": "security-audit-toolkit",
+      "verdict": "DANGEROUS",
+      "exitCode": 2,
+      "highCount": 2,
+      "medCount": 1,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:205",
+          "file": "SKILL.md:205",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "SKILL.md:243",
+          "file": "SKILL.md:243",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "SKILL.md:140",
+          "file": "SKILL.md:140",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T08:30:32.049Z"
+    },
+    {
+      "slug": "clawdbot-security-suite",
+      "verdict": "DANGEROUS",
+      "exitCode": 2,
+      "highCount": 12,
+      "medCount": 2,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "description": "CONTRIBUTING.md:149",
+          "file": "CONTRIBUTING.md:149",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "CONTRIBUTING.md:149",
+          "file": "CONTRIBUTING.md:149",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "README.md:51",
+          "file": "README.md:51",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "README.md:49",
+          "file": "README.md:49",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "SKILL.md:46",
+          "file": "SKILL.md:46",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "SKILL.md:207",
+          "file": "SKILL.md:207",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "hooks\\security-validator\\handler.ts:79",
+          "file": "hooks\\security-validator\\handler.ts:79",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "hooks\\security-validator\\HOOK.md:51",
+          "file": "hooks\\security-validator\\HOOK.md:51",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "skills\\security\\INSTALL.md:34",
+          "file": "skills\\security\\INSTALL.md:34",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "skills\\security\\patterns.json:119",
+          "file": "skills\\security\\patterns.json:119",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "skills\\security\\patterns.json:120",
+          "file": "skills\\security\\patterns.json:120",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "skills\\security\\README.md:27",
+          "file": "skills\\security\\README.md:27",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "skills\\security\\SKILL.md:42",
+          "file": "skills\\security\\SKILL.md:42",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "skills\\security\\SKILL.md:203",
+          "file": "skills\\security\\SKILL.md:203",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T08:31:02.987Z"
+    },
+    {
+      "slug": "cyber-security-engineer",
+      "verdict": "DANGEROUS",
+      "exitCode": 2,
+      "highCount": 1,
+      "medCount": 0,
+      "findings": [
+        {
+          "severity": "HIGH",
+          "description": "scripts\\install-openclaw-runtime-hook.sh:136",
+          "file": "scripts\\install-openclaw-runtime-hook.sh:136",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T08:31:08.235Z"
+    },
+    {
+      "slug": "agentic-security-audit",
+      "verdict": "DANGEROUS",
+      "exitCode": 2,
+      "highCount": 4,
+      "medCount": 1,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:205",
+          "file": "SKILL.md:205",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "SKILL.md:564",
+          "file": "SKILL.md:564",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "SKILL.md:243",
+          "file": "SKILL.md:243",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "SKILL.md:674",
+          "file": "SKILL.md:674",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "SKILL.md:140",
+          "file": "SKILL.md:140",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T08:31:21.197Z"
+    },
+    {
+      "slug": "rescuetime",
+      "verdict": "DANGEROUS",
+      "exitCode": 2,
+      "highCount": 6,
+      "medCount": 0,
+      "findings": [
+        {
+          "severity": "HIGH",
+          "description": "SKILL.md:26",
+          "file": "SKILL.md:26",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "SKILL.md:39",
+          "file": "SKILL.md:39",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "SKILL.md:56",
+          "file": "SKILL.md:56",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "SKILL.md:61",
+          "file": "SKILL.md:61",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "SKILL.md:66",
+          "file": "SKILL.md:66",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "SKILL.md:71",
+          "file": "SKILL.md:71",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T08:32:02.836Z"
+    },
+    {
+      "slug": "afrexai-business-automation",
+      "verdict": "DANGEROUS",
+      "exitCode": 2,
+      "highCount": 1,
+      "medCount": 0,
+      "findings": [
+        {
+          "severity": "HIGH",
+          "description": "SKILL.md:98",
+          "file": "SKILL.md:98",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T08:32:31.873Z"
+    }
+  ],
+  "falsePositives": [],
+  "summary": {
+    "totalScanned": 7,
+    "dangerous": 7,
+    "suspicious": 0,
+    "likelyFalsePositives": 0,
+    "lastUpdated": "2026-03-21T08:32:31.873Z"
+  }
+}
