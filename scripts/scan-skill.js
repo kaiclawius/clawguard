@@ -8,9 +8,61 @@
 const fs = require('fs');
 const path = require('path');
 const https = require('https');
+const os = require('os');
+const { readAndValidateLicense } = require('./license');
 
-// Dangerous patterns to look for
-const DANGER_PATTERNS = [
+const PRO_THREATS_FILE = path.join(os.homedir(), '.clawguard', 'threats-pro.json');
+const BUNDLED_THREATS = path.join(__dirname, '..', 'threats.json');
+
+// Load threat patterns based on license tier
+// Pro tier MERGES free + pro patterns for maximum coverage
+function loadPatterns(license) {
+  // Always load free tier patterns as baseline
+  let freePatterns = [];
+  try {
+    const db = JSON.parse(fs.readFileSync(BUNDLED_THREATS, 'utf8'));
+    if (db.patterns && db.patterns.length > 0) {
+      freePatterns = db.patterns
+        .filter(p => p.pattern && p.pattern.length > 2)
+        .map(p => ({
+          pattern: new RegExp(p.pattern, p.flags || 'i'),
+          severity: p.severity,
+          description: p.description,
+        }));
+    }
+  } catch (e) {}
+
+  // Pro license: MERGE free + pro patterns
+  if (license.valid && fs.existsSync(PRO_THREATS_FILE)) {
+    try {
+      const db = JSON.parse(fs.readFileSync(PRO_THREATS_FILE, 'utf8'));
+      if (db.patterns && db.patterns.length > 0) {
+        const proPatterns = db.patterns
+          .filter(p => p.pattern && p.pattern.length > 2)
+          .map(p => ({
+            pattern: new RegExp(p.pattern, p.flags || 'i'),
+            severity: p.severity,
+            description: p.description,
+          }));
+        const merged = [...freePatterns, ...proPatterns];
+        return { patterns: merged, tier: 'pro', count: merged.length };
+      }
+    } catch (e) {
+      // Fall through to free only
+    }
+  }
+
+  // Free tier only
+  if (freePatterns.length > 0) {
+    return { patterns: freePatterns, tier: 'free', count: freePatterns.length };
+  }
+
+  // Hardcoded fallback (used only if threats.json is missing)
+  return { patterns: HARDCODED_PATTERNS, tier: 'free', count: HARDCODED_PATTERNS.length };
+}
+
+// Hardcoded fallback patterns (used only if threats.json is missing)
+const HARDCODED_PATTERNS = [
   // Data exfiltration
   { pattern: /https?:\/\/(?!openclaw\.ai|clawhub\.ai|docs\.openclaw\.ai)[a-z0-9.-]+\/[^\s"']*(key|token|secret|password|credential)/i, severity: 'HIGH', description: 'Possible credential exfiltration URL' },
   { pattern: /curl\s+.*(-d|--data|--data-raw)/i, severity: 'HIGH', description: 'curl with data — possible exfiltration' },
@@ -46,14 +98,14 @@ function isPatternDefinitionLine(line) {
   return /^\s*\{?\s*pattern\s*:\s*\//.test(line);
 }
 
-function scanContent(content, filePath) {
+function scanContent(content, filePath, patterns) {
   const findings = [];
   const lines = content.split('\n');
 
   // If this is a ClawGuard scanner file, suppress self-referential matches on pattern-definition lines.
   const isScannerFile = content.includes('// CLAWGUARD_SCANNER');
 
-  for (const { pattern, severity, description } of DANGER_PATTERNS) {
+  for (const { pattern, severity, description } of patterns) {
     for (let i = 0; i < lines.length; i++) {
       const line = lines[i];
 
@@ -73,7 +125,7 @@ function scanContent(content, filePath) {
   return findings;
 }
 
-function scanDirectory(dirPath) {
+function scanDirectory(dirPath, patterns) {
   const allFindings = [];
   const files = fs.readdirSync(dirPath, { recursive: true });
 
@@ -84,7 +136,7 @@ function scanDirectory(dirPath) {
       if (['.md', '.js', '.ts', '.sh', '.py', '.json'].includes(ext)) {
         try {
           const content = fs.readFileSync(fullPath, 'utf8');
-          const findings = scanContent(content, file);
+          const findings = scanContent(content, file, patterns);
           allFindings.push(...findings);
         } catch (e) {
           // Skip unreadable files
@@ -95,13 +147,18 @@ function scanDirectory(dirPath) {
   return allFindings;
 }
 
-function printReport(skillName, findings) {
+function printReport(skillName, findings, tierInfo) {
   console.log('');
   console.log('╔══════════════════════════════════════════╗');
   console.log('║        ClawGuard Skill Scan Report       ║');
   console.log('╚══════════════════════════════════════════╝');
   console.log(`  Skill: ${skillName}`);
   console.log(`  Time:  ${new Date().toISOString()}`);
+  if (tierInfo.tier === 'pro') {
+    console.log(`  Tier:  [PRO TIER - ${tierInfo.count} patterns]`);
+  } else {
+    console.log(`  Tier:  [FREE TIER - ${tierInfo.count} patterns]`);
+  }
   console.log('');
 
   if (findings.length === 0) {
@@ -152,6 +209,8 @@ if (!fs.existsSync(target)) {
   process.exit(1);
 }
 
-const findings = scanDirectory(target);
-const exitCode = printReport(path.basename(target), findings);
+const license = readAndValidateLicense();
+const tierInfo = loadPatterns(license);
+const findings = scanDirectory(target, tierInfo.patterns);
+const exitCode = printReport(path.basename(target), findings, tierInfo);
 process.exit(exitCode);
