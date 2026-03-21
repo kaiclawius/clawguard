@@ -341,14 +341,834 @@
         }
       ],
       "scannedAt": "2026-03-21T08:32:31.873Z"
+    },
+    {
+      "slug": "agent-browser-clawdbot",
+      "verdict": "SUSPICIOUS",
+      "exitCode": 1,
+      "highCount": 0,
+      "medCount": 1,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:197",
+          "file": "SKILL.md:197",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T08:37:51.555Z"
+    },
+    {
+      "slug": "agent-browser-clawdbot-bak-2026-01-28t18-01-09-10-30",
+      "verdict": "SUSPICIOUS",
+      "exitCode": 1,
+      "highCount": 0,
+      "medCount": 1,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:197",
+          "file": "SKILL.md:197",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T08:38:32.484Z"
+    },
+    {
+      "slug": "browser-automation-v2",
+      "verdict": "SUSPICIOUS",
+      "exitCode": 1,
+      "highCount": 0,
+      "medCount": 7,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "description": "browser-manager.v2.js:8",
+          "file": "browser-manager.v2.js:8",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "browser-manager.v2.js:66",
+          "file": "browser-manager.v2.js:66",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "browser-manager.v2.js:20",
+          "file": "browser-manager.v2.js:20",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "browser-manager.v2.js:257",
+          "file": "browser-manager.v2.js:257",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "browser-manager.v2.js:258",
+          "file": "browser-manager.v2.js:258",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "browser-manager.v2.js:259",
+          "file": "browser-manager.v2.js:259",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "fetch-summary.js:25",
+          "file": "fetch-summary.js:25",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "fetch-summary.js:27",
+          "file": "fetch-summary.js:27",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "fetch-summary.js:73",
+          "file": "fetch-summary.js:73",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "fetch-summary.js:78",
+          "file": "fetch-summary.js:78",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "fetch-summary.js:83",
+          "file": "fetch-summary.js:83",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "search-google.js:13",
+          "file": "search-google.js:13",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T08:38:36.861Z"
+    },
+    {
+      "slug": "email-daily-summary",
+      "verdict": "SUSPICIOUS",
+      "exitCode": 1,
+      "highCount": 0,
+      "medCount": 3,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:219",
+          "file": "SKILL.md:219",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:227",
+          "file": "SKILL.md:227",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:258",
+          "file": "SKILL.md:258",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T08:38:40.728Z"
+    },
+    {
+      "slug": "imap-smtp-email-chinese",
+      "verdict": "SUSPICIOUS",
+      "exitCode": 1,
+      "highCount": 0,
+      "medCount": 1,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "description": "scripts\\check-inbox.js:30",
+          "file": "scripts\\check-inbox.js:30",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "scripts\\imap.js:23",
+          "file": "scripts\\imap.js:23",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "scripts\\imap.js:50",
+          "file": "scripts\\imap.js:50",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "scripts\\imap.js:51",
+          "file": "scripts\\imap.js:51",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "scripts\\imap.js:52",
+          "file": "scripts\\imap.js:52",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "scripts\\imap.js:54",
+          "file": "scripts\\imap.js:54",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "scripts\\imap.js:55",
+          "file": "scripts\\imap.js:55",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "scripts\\imap.js:64",
+          "file": "scripts\\imap.js:64",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "scripts\\smtp.js:38",
+          "file": "scripts\\smtp.js:38",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "scripts\\smtp.js:39",
+          "file": "scripts\\smtp.js:39",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "scripts\\smtp.js:40",
+          "file": "scripts\\smtp.js:40",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "scripts\\smtp.js:42",
+          "file": "scripts\\smtp.js:42",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "scripts\\smtp.js:43",
+          "file": "scripts\\smtp.js:43",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "scripts\\smtp.js:46",
+          "file": "scripts\\smtp.js:46",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "scripts\\smtp.js:70",
+          "file": "scripts\\smtp.js:70",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "scripts\\smtp.js:125",
+          "file": "scripts\\smtp.js:125",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "scripts\\smtp.js:126",
+          "file": "scripts\\smtp.js:126",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T08:39:24.184Z"
+    },
+    {
+      "slug": "bot-email",
+      "verdict": "DANGEROUS",
+      "exitCode": 2,
+      "highCount": 1,
+      "medCount": 2,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "description": "EXAMPLES.md:239",
+          "file": "EXAMPLES.md:239",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "EXAMPLES.md:354",
+          "file": "EXAMPLES.md:354",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "skill.json:53",
+          "file": "skill.json:53",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T08:39:32.754Z"
+    },
+    {
+      "slug": "feishu-calendar",
+      "verdict": "DANGEROUS",
+      "exitCode": 2,
+      "highCount": 1,
+      "medCount": 0,
+      "findings": [
+        {
+          "severity": "LOW",
+          "description": "check.js:5",
+          "file": "check.js:5",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "check.js:6",
+          "file": "check.js:6",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "cleanup.js:4",
+          "file": "cleanup.js:4",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "cleanup.js:5",
+          "file": "cleanup.js:5",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "create.js:5",
+          "file": "create.js:5",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "create.js:6",
+          "file": "create.js:6",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "list_test.js:4",
+          "file": "list_test.js:4",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "list_test.js:5",
+          "file": "list_test.js:5",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "search_cal.js:4",
+          "file": "search_cal.js:4",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "search_cal.js:5",
+          "file": "search_cal.js:5",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "search_cal.js:6",
+          "file": "search_cal.js:6",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "setup_routine.js:5",
+          "file": "setup_routine.js:5",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "setup_routine.js:6",
+          "file": "setup_routine.js:6",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "setup_shared.js:5",
+          "file": "setup_shared.js:5",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "setup_shared.js:6",
+          "file": "setup_shared.js:6",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "sync.js:35",
+          "file": "sync.js:35",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "lib\\CalendarManager.js:7",
+          "file": "lib\\CalendarManager.js:7",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "lib\\CalendarManager.js:8",
+          "file": "lib\\CalendarManager.js:8",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T08:39:45.274Z"
+    },
+    {
+      "slug": "calendar-manager",
+      "verdict": "SUSPICIOUS",
+      "exitCode": 1,
+      "highCount": 0,
+      "medCount": 3,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "description": "references\\resources.md:107",
+          "file": "references\\resources.md:107",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "references\\resources.md:108",
+          "file": "references\\resources.md:108",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "references\\resources.md:109",
+          "file": "references\\resources.md:109",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T08:40:10.099Z"
+    },
+    {
+      "slug": "dingtalk-calendar",
+      "verdict": "SUSPICIOUS",
+      "exitCode": 1,
+      "highCount": 0,
+      "medCount": 1,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:18",
+          "file": "SKILL.md:18",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T08:40:14.426Z"
+    },
+    {
+      "slug": "yandex-calendar",
+      "verdict": "SUSPICIOUS",
+      "exitCode": 1,
+      "highCount": 0,
+      "medCount": 31,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:1",
+          "file": "SKILL.md:1",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:3",
+          "file": "SKILL.md:3",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:5",
+          "file": "SKILL.md:5",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:7",
+          "file": "SKILL.md:7",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:8",
+          "file": "SKILL.md:8",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:9",
+          "file": "SKILL.md:9",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:10",
+          "file": "SKILL.md:10",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:12",
+          "file": "SKILL.md:12",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:14",
+          "file": "SKILL.md:14",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:17",
+          "file": "SKILL.md:17",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:18",
+          "file": "SKILL.md:18",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:19",
+          "file": "SKILL.md:19",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:21",
+          "file": "SKILL.md:21",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:23",
+          "file": "SKILL.md:23",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:26",
+          "file": "SKILL.md:26",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:28",
+          "file": "SKILL.md:28",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:30",
+          "file": "SKILL.md:30",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:31",
+          "file": "SKILL.md:31",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:32",
+          "file": "SKILL.md:32",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:34",
+          "file": "SKILL.md:34",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:35",
+          "file": "SKILL.md:35",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:37",
+          "file": "SKILL.md:37",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:38",
+          "file": "SKILL.md:38",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:39",
+          "file": "SKILL.md:39",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:41",
+          "file": "SKILL.md:41",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:42",
+          "file": "SKILL.md:42",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:44",
+          "file": "SKILL.md:44",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:46",
+          "file": "SKILL.md:46",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:47",
+          "file": "SKILL.md:47",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:48",
+          "file": "SKILL.md:48",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:49",
+          "file": "SKILL.md:49",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T08:40:18.827Z"
     }
   ],
   "falsePositives": [],
   "summary": {
-    "totalScanned": 7,
-    "dangerous": 7,
-    "suspicious": 0,
+    "totalScanned": 17,
+    "dangerous": 9,
+    "suspicious": 8,
     "likelyFalsePositives": 0,
-    "lastUpdated": "2026-03-21T08:32:31.873Z"
+    "lastUpdated": "2026-03-21T08:40:18.827Z"
   }
 }

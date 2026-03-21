@@ -203,6 +203,38 @@
       "description": "Sends file contents to external service",
       "pattern": "readFile.*then.*fetch|readFileSync.*fetch",
       "flags": "i"
+    },
+    {
+      "id": "CG-NEW-001",
+      "category": "auto_registration",
+      "severity": "HIGH",
+      "description": "Auto-creates accounts on external services via POST",
+      "pattern": "curl.*-X.*POST.*(create-account|register|signup|new-user)",
+      "flags": "i"
+    },
+    {
+      "id": "CG-NEW-002",
+      "category": "exfiltration",
+      "severity": "MEDIUM",
+      "description": "API key exposed as URL query parameter",
+      "pattern": "https?:\\/\\/[^\\s\"']+\\?[a-z_-]*(?:key|token|secret)=[a-zA-Z0-9]{10,}",
+      "flags": "i"
+    },
+    {
+      "id": "CG-NEW-003",
+      "category": "autonomous_action",
+      "severity": "MEDIUM",
+      "description": "Sends emails autonomously without user confirmation",
+      "pattern": "transporter\\.sendMail|smtp.*\\.send\\(|nodemailer.*send",
+      "flags": "i"
+    },
+    {
+      "id": "CG-NEW-004",
+      "category": "exfiltration",
+      "severity": "HIGH",
+      "description": "Sends local file contents via curl POST to external URL",
+      "pattern": "curl.*-d\\s+@|curl.*--data\\s+@",
+      "flags": "i"
     }
   ],
   "pro_teaser": {
