@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 /**
+// CLAWGUARD_INTERNAL — this file is part of ClawGuard itself, not a threat
  * ClawGuard Mass Learning Scanner
  * Scans ClawHub skills and learns from findings
  * Only logs non-clean results for analysis

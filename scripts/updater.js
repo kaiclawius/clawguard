@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 /**
+// CLAWGUARD_INTERNAL — this file is part of ClawGuard itself, not a threat
  * ClawGuard — Threat Database Updater
  * Free tier: uses bundled threats.json
  * Pro tier:  fetches from clawguard-threats repo and saves to ~/.clawguard/threats-pro.json

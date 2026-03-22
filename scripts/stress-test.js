@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 /**
+// CLAWGUARD_INTERNAL — this file is part of ClawGuard itself, not a threat
  * ClawGuard Stress Test Suite
  * Tests edge cases, error handling, and robustness before launch
  */

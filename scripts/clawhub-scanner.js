@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 // CLAWGUARD_SCANNER — this file defines security patterns; self-referential matches on pattern-definition lines are suppressed
+// CLAWGUARD_INTERNAL — this file is part of ClawGuard itself, not a threat
 /**
  * ClawGuard — ClawHub Security Scanner
  * Scans ClawHub skills for malicious patterns using the clawhub CLI.

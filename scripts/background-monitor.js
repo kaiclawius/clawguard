@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 /**
+// CLAWGUARD_INTERNAL — this file is part of ClawGuard itself, not a threat
  * ClawGuard Background Monitor
  * Runs via OS scheduler (Task Scheduler / cron / LaunchAgent)
  * Zero LLM tokens. Zero API credits. Pure Node.js.

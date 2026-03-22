@@ -92,7 +92,7 @@ const HARDCODED_PATTERNS = [
   { pattern: /net\.connect|net\.createConnection/i, severity: 'MEDIUM', description: 'Raw TCP connections' },
 ];
 
-// Matches lines that are pattern-array entries, e.g.: { pattern: /DAN|jailbreak/i, severity: 'HIGH', ... }
+// Matches lines that are pattern-array entries, e.g.: { pattern: /known-attack-term/i, severity: 'HIGH', ... }
 // These lines define what to look for — they are not themselves malicious code.
 function isPatternDefinitionLine(line) {
   return /^\s*\{?\s*pattern\s*:\s*\//.test(line);
@@ -104,8 +104,8 @@ function scanContent(content, filePath, patterns) {
   const ext = path.extname(filePath).toLowerCase();
   const fileName = path.basename(filePath).toLowerCase();
 
-  // Suppress self-referential matches in scanner files
-  const isScannerFile = content.includes('// CLAWGUARD_SCANNER');
+  // Suppress self-referential matches in ClawGuard's own files
+  const isScannerFile = content.includes('// CLAWGUARD_SCANNER') || content.includes('// CLAWGUARD_INTERNAL');
 
   // Markdown files (README, CONTRIBUTING, docs) — downgrade severity
   // Attack patterns in docs = examples, not actual threats

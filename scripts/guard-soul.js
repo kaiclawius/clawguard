@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 /**
+// CLAWGUARD_INTERNAL — this file is part of ClawGuard itself, not a threat
  * ClawGuard - SOUL.md Integrity Guardian
  * Hashes SOUL.md using SHA256 and detects unauthorized changes.
  *

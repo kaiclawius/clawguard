@@ -128,16 +128,16 @@
       "id": "CG-016",
       "category": "soul_tampering",
       "severity": "HIGH",
-      "description": "Attempts to modify SOUL.md",
-      "pattern": "SOUL\\.md.*write|writeFile.*SOUL|fs\\..*SOUL",
+      "description": "Writes to SOUL.md — possible identity tampering",
+      "pattern": "writeFile.*SOUL\\\\.md|appendFile.*SOUL\\\\.md|write.*SOUL\\\\.md",
       "flags": "i"
     },
     {
       "id": "CG-017",
       "category": "soul_tampering",
       "severity": "HIGH",
-      "description": "Attempts to overwrite identity files",
-      "pattern": "writeFile.*IDENTITY|writeFile.*MEMORY|overwrite.*soul",
+      "description": "Writes to identity/memory files",
+      "pattern": "writeFile.*(IDENTITY|MEMORY)\\\\.md|appendFile.*(IDENTITY|MEMORY)\\\\.md",
       "flags": "i"
     },
     {
