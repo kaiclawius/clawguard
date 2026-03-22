@@ -1161,14 +1161,980 @@
         }
       ],
       "scannedAt": "2026-03-21T08:40:18.827Z"
+    },
+    {
+      "slug": "openclaw-github-assistant",
+      "verdict": "SUSPICIOUS",
+      "exitCode": 1,
+      "highCount": 0,
+      "medCount": 3,
+      "findings": [
+        {
+          "severity": "LOW",
+          "description": "api.js:29",
+          "file": "api.js:29",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "api.js:30",
+          "file": "api.js:30",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "api.js:45",
+          "file": "api.js:45",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "api.js:46",
+          "file": "api.js:46",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "README.md:25",
+          "file": "README.md:25",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:49",
+          "file": "SKILL.md:49",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "test.js:4",
+          "file": "test.js:4",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "test.js:12",
+          "file": "test.js:12",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "test.js:30",
+          "file": "test.js:30",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "test.js:31",
+          "file": "test.js:31",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "test.js:41",
+          "file": "test.js:41",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "test.js:42",
+          "file": "test.js:42",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T20:54:48.341Z"
+    },
+    {
+      "slug": "github-workflow",
+      "verdict": "SUSPICIOUS",
+      "exitCode": 1,
+      "highCount": 0,
+      "medCount": 1,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:18",
+          "file": "SKILL.md:18",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T20:55:08.257Z"
+    },
+    {
+      "slug": "github-pages-auto-deploy",
+      "verdict": "SUSPICIOUS",
+      "exitCode": 1,
+      "highCount": 0,
+      "medCount": 1,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:126",
+          "file": "SKILL.md:126",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T20:55:16.747Z"
+    },
+    {
+      "slug": "discord-voice",
+      "verdict": "DANGEROUS",
+      "exitCode": 2,
+      "highCount": 24,
+      "medCount": 3,
+      "findings": [
+        {
+          "severity": "LOW",
+          "description": "index.ts:156",
+          "file": "index.ts:156",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:448",
+          "file": "package-lock.json:448",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:464",
+          "file": "package-lock.json:464",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:485",
+          "file": "package-lock.json:485",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:510",
+          "file": "package-lock.json:510",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:529",
+          "file": "package-lock.json:529",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:552",
+          "file": "package-lock.json:552",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:569",
+          "file": "package-lock.json:569",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:588",
+          "file": "package-lock.json:588",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:790",
+          "file": "package-lock.json:790",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:2029",
+          "file": "package-lock.json:2029",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:2046",
+          "file": "package-lock.json:2046",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:3171",
+          "file": "package-lock.json:3171",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:4556",
+          "file": "package-lock.json:4556",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:5174",
+          "file": "package-lock.json:5174",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:5192",
+          "file": "package-lock.json:5192",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:5277",
+          "file": "package-lock.json:5277",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:5378",
+          "file": "package-lock.json:5378",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:5387",
+          "file": "package-lock.json:5387",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:7861",
+          "file": "package-lock.json:7861",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:8449",
+          "file": "package-lock.json:8449",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:8541",
+          "file": "package-lock.json:8541",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:9332",
+          "file": "package-lock.json:9332",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:9949",
+          "file": "package-lock.json:9949",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "package-lock.json:11717",
+          "file": "package-lock.json:11717",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "README.md:519",
+          "file": "README.md:519",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:296",
+          "file": "SKILL.md:296",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "src\\core-bridge.ts:88",
+          "file": "src\\core-bridge.ts:88",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "src\\core-bridge.ts:118",
+          "file": "src\\core-bridge.ts:118",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "src\\streaming-stt.ts:87",
+          "file": "src\\streaming-stt.ts:87",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "src\\streaming-tts.ts:56",
+          "file": "src\\streaming-tts.ts:56",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "src\\streaming-tts.ts:116",
+          "file": "src\\streaming-tts.ts:116",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "src\\stt.ts:38",
+          "file": "src\\stt.ts:38",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "src\\stt.ts:127",
+          "file": "src\\stt.ts:127",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "src\\stt.ts:179",
+          "file": "src\\stt.ts:179",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "src\\stt.ts:370",
+          "file": "src\\stt.ts:370",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "src\\tts.ts:49",
+          "file": "src\\tts.ts:49",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "src\\tts.ts:96",
+          "file": "src\\tts.ts:96",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "src\\tts.ts:223",
+          "file": "src\\tts.ts:223",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "src\\tts.ts:270",
+          "file": "src\\tts.ts:270",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T20:55:34.126Z"
+    },
+    {
+      "slug": "discord-chat",
+      "verdict": "SUSPICIOUS",
+      "exitCode": 1,
+      "highCount": 0,
+      "medCount": 2,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "description": "references\\CONFIG.md:58",
+          "file": "references\\CONFIG.md:58",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "references\\CONFIG.md:60",
+          "file": "references\\CONFIG.md:60",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T20:55:38.385Z"
+    },
+    {
+      "slug": "discord-voice-deepgram",
+      "verdict": "SUSPICIOUS",
+      "exitCode": 1,
+      "highCount": 0,
+      "medCount": 0,
+      "findings": [
+        {
+          "severity": "LOW",
+          "description": "src\\core-bridge.ts:91",
+          "file": "src\\core-bridge.ts:91",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "src\\streaming-stt.ts:68",
+          "file": "src\\streaming-stt.ts:68",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "src\\streaming-stt.ts:69",
+          "file": "src\\streaming-stt.ts:69",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "src\\streaming-stt.ts:70",
+          "file": "src\\streaming-stt.ts:70",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "src\\streaming-tts.ts:22",
+          "file": "src\\streaming-tts.ts:22",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "src\\stt.ts:22",
+          "file": "src\\stt.ts:22",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "src\\stt.ts:23",
+          "file": "src\\stt.ts:23",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "src\\stt.ts:24",
+          "file": "src\\stt.ts:24",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "src\\tts.ts:23",
+          "file": "src\\tts.ts:23",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T20:56:11.970Z"
+    },
+    {
+      "slug": "telegram",
+      "verdict": "SUSPICIOUS",
+      "exitCode": 1,
+      "highCount": 0,
+      "medCount": 1,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "description": "references\\telegram-bot-api.md:4",
+          "file": "references\\telegram-bot-api.md:4",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T20:56:33.458Z"
+    },
+    {
+      "slug": "telegram-voice-group",
+      "verdict": "SUSPICIOUS",
+      "exitCode": 1,
+      "highCount": 0,
+      "medCount": 4,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "description": "DEPENDENCIES.md:7",
+          "file": "DEPENDENCIES.md:7",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "index.js:33",
+          "file": "index.js:33",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "index.js:95",
+          "file": "index.js:95",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "index.js:96",
+          "file": "index.js:96",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "README.md:100",
+          "file": "README.md:100",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "LOW",
+          "description": "SKILL.md:84",
+          "file": "SKILL.md:84",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T20:56:37.715Z"
+    },
+    {
+      "slug": "polymarket-telegram-picks",
+      "verdict": "DANGEROUS",
+      "exitCode": 2,
+      "highCount": 1,
+      "medCount": 1,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "description": "README.md:31",
+          "file": "README.md:31",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "scripts\\send_telegram.py:39",
+          "file": "scripts\\send_telegram.py:39",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T20:57:10.412Z"
+    },
+    {
+      "slug": "openclaw-telegram-setup",
+      "verdict": "SUSPICIOUS",
+      "exitCode": 1,
+      "highCount": 0,
+      "medCount": 1,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:25",
+          "file": "SKILL.md:25",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T20:57:14.407Z"
+    },
+    {
+      "slug": "openclaw-watchdog",
+      "verdict": "DANGEROUS",
+      "exitCode": 2,
+      "highCount": 12,
+      "medCount": 20,
+      "findings": [
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:35",
+          "file": "SKILL.md:35",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:95",
+          "file": "SKILL.md:95",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "SKILL.md:96",
+          "file": "SKILL.md:96",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "openclaw-watchdog\\SKILL.md:35",
+          "file": "openclaw-watchdog\\SKILL.md:35",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "openclaw-watchdog\\SKILL.md:94",
+          "file": "openclaw-watchdog\\SKILL.md:94",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "openclaw-watchdog\\SKILL.md:95",
+          "file": "openclaw-watchdog\\SKILL.md:95",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "references\\troubleshooting.md:21",
+          "file": "references\\troubleshooting.md:21",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "references\\troubleshooting.md:22",
+          "file": "references\\troubleshooting.md:22",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "references\\troubleshooting.md:44",
+          "file": "references\\troubleshooting.md:44",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "references\\troubleshooting.md:45",
+          "file": "references\\troubleshooting.md:45",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "references\\troubleshooting.md:62",
+          "file": "references\\troubleshooting.md:62",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "references\\troubleshooting.md:63",
+          "file": "references\\troubleshooting.md:63",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "references\\troubleshooting.md:35",
+          "file": "references\\troubleshooting.md:35",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "scripts\\setup.sh:116",
+          "file": "scripts\\setup.sh:116",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "scripts\\setup.sh:118",
+          "file": "scripts\\setup.sh:118",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "scripts\\test-message.py:28",
+          "file": "scripts\\test-message.py:28",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "scripts\\validate.py:18",
+          "file": "scripts\\validate.py:18",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "scripts\\watchdog.py:100",
+          "file": "scripts\\watchdog.py:100",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "scripts\\watchdog.py:211",
+          "file": "scripts\\watchdog.py:211",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "openclaw-watchdog\\references\\troubleshooting.md:21",
+          "file": "openclaw-watchdog\\references\\troubleshooting.md:21",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "openclaw-watchdog\\references\\troubleshooting.md:22",
+          "file": "openclaw-watchdog\\references\\troubleshooting.md:22",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "openclaw-watchdog\\references\\troubleshooting.md:44",
+          "file": "openclaw-watchdog\\references\\troubleshooting.md:44",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "openclaw-watchdog\\references\\troubleshooting.md:45",
+          "file": "openclaw-watchdog\\references\\troubleshooting.md:45",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "openclaw-watchdog\\references\\troubleshooting.md:62",
+          "file": "openclaw-watchdog\\references\\troubleshooting.md:62",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "openclaw-watchdog\\references\\troubleshooting.md:63",
+          "file": "openclaw-watchdog\\references\\troubleshooting.md:63",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "MEDIUM",
+          "description": "openclaw-watchdog\\references\\troubleshooting.md:35",
+          "file": "openclaw-watchdog\\references\\troubleshooting.md:35",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "openclaw-watchdog\\scripts\\setup.sh:103",
+          "file": "openclaw-watchdog\\scripts\\setup.sh:103",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "openclaw-watchdog\\scripts\\setup.sh:105",
+          "file": "openclaw-watchdog\\scripts\\setup.sh:105",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "openclaw-watchdog\\scripts\\test-message.py:28",
+          "file": "openclaw-watchdog\\scripts\\test-message.py:28",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "openclaw-watchdog\\scripts\\validate.py:18",
+          "file": "openclaw-watchdog\\scripts\\validate.py:18",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "openclaw-watchdog\\scripts\\watchdog.py:100",
+          "file": "openclaw-watchdog\\scripts\\watchdog.py:100",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        },
+        {
+          "severity": "HIGH",
+          "description": "openclaw-watchdog\\scripts\\watchdog.py:211",
+          "file": "openclaw-watchdog\\scripts\\watchdog.py:211",
+          "code": "",
+          "likelyFalsePositive": false,
+          "fpReason": null
+        }
+      ],
+      "scannedAt": "2026-03-21T20:57:19.005Z"
     }
   ],
   "falsePositives": [],
   "summary": {
-    "totalScanned": 17,
-    "dangerous": 9,
-    "suspicious": 8,
+    "totalScanned": 28,
+    "dangerous": 12,
+    "suspicious": 16,
     "likelyFalsePositives": 0,
-    "lastUpdated": "2026-03-21T08:40:18.827Z"
+    "lastUpdated": "2026-03-21T20:57:19.005Z"
   }
 }

@@ -156,6 +156,10 @@ function scanDirectory(dirPath, patterns) {
     const fullPath = path.join(dirPath, file);
     if (fs.statSync(fullPath).isFile()) {
       const ext = path.extname(file).toLowerCase();
+      // Skip lock files and build artifacts — full of registry URLs, always FP
+      const skipFiles = ['package-lock.json', 'yarn.lock', 'pnpm-lock.yaml', 'bun.lockb', '.clawhub'];
+      if (skipFiles.some(s => file.includes(s))) continue;
+
       if (['.md', '.js', '.ts', '.sh', '.py', '.json'].includes(ext)) {
         try {
           const content = fs.readFileSync(fullPath, 'utf8');
