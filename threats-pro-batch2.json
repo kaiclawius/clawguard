@@ -1,0 +1,402 @@
+[
+  {
+    "id": "CG-076",
+    "category": "supply_chain_typosquatting",
+    "severity": "HIGH",
+    "description": "Typosquatted package names mimicking popular npm packages",
+    "pattern": "require\\s*\\(\\s*['\"](?:lod[a4]sh|reac[t7]|expre[s5]{2}|mongoo[s5]e|axio[s5]|webpa[c4]k|moment[j1]s|lodas[hн]|reacts?-dom|expresss)['\"]\\s*\\)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-077",
+    "category": "supply_chain_dep_confusion",
+    "severity": "HIGH",
+    "description": "Dependency confusion — requiring internal-scoped packages from public registry",
+    "pattern": "require\\s*\\(\\s*['\"]@(?:internal|private|corp|company|enterprise)\\/.+?['\"]\\s*\\)|['\"]@(?:internal|private|corp|company)\\/[a-z0-9_-]+['\"]\\s*:\\s*['\"]\\^?[0-9]",
+    "flags": "i"
+  },
+  {
+    "id": "CG-078",
+    "category": "supply_chain_update_hijack",
+    "severity": "HIGH",
+    "description": "Auto-update mechanism pulling from untrusted or dynamic source",
+    "pattern": "(?:auto.?update|self.?update|force.?upgrade|silentUpdate)\\s*\\([^)]*(?:https?:\\/\\/(?!registry\\.npmjs\\.org|github\\.com\\/|raw\\.githubusercontent\\.com\\/)[a-z0-9.-]+)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-079",
+    "category": "supply_chain_version_rollback",
+    "severity": "HIGH",
+    "description": "Forcing installation of older, potentially vulnerable package versions",
+    "pattern": "npm\\s+install\\s+[a-z0-9@/_-]+@(?:0\\.[0-9]+\\.[0-9]+|[0-9]+\\.[0-9]+\\.[0-9]+-(?:alpha|beta|rc)\\.[0-9]+)\\b.*?(?:--save|--force|--legacy-peer-deps)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-080",
+    "category": "supply_chain_checksum_bypass",
+    "severity": "HIGH",
+    "description": "Skipping package integrity or checksum verification",
+    "pattern": "(?:--ignore-scripts|skipIntegrity|disableIntegrity|skip.?checksum|integrity.?(?:false|null|undefined|skip)|--no-package-lock|verif(?:y|ication).?(?:false|disabled|skip))",
+    "flags": "i"
+  },
+  {
+    "id": "CG-081",
+    "category": "supply_chain_postinstall_script",
+    "severity": "HIGH",
+    "description": "Malicious postinstall script executing shell commands or downloads",
+    "pattern": "\"(?:postinstall|preinstall|install)\"\\s*:\\s*\"[^\"]*(?:curl|wget|bash|sh\\s|exec|eval|node\\s+-e|python)[^\"]*\"",
+    "flags": "i"
+  },
+  {
+    "id": "CG-082",
+    "category": "supply_chain_trojanized_helper",
+    "severity": "HIGH",
+    "description": "Helper/utility module that secretly spawns child processes",
+    "pattern": "(?:helper|util|utils|tool|adapter|plugin|wrapper)\\s*=\\s*require\\s*\\([^)]+\\)[\\s\\S]{0,200}?\\.(?:exec|spawn|execSync|spawnSync|fork)\\s*\\(",
+    "flags": "i"
+  },
+  {
+    "id": "CG-083",
+    "category": "supply_chain_shadow_dep",
+    "severity": "MEDIUM",
+    "description": "Loading packages not listed in package.json via non-standard require paths",
+    "pattern": "(?:__non_webpack_require__|global\\.require|globalThis\\.require|\\beval\\b.*?require|require\\.main\\.require)\\s*\\(|process\\.mainModule\\.require\\s*\\(",
+    "flags": "i"
+  },
+  {
+    "id": "CG-084",
+    "category": "supply_chain_registry_confusion",
+    "severity": "HIGH",
+    "description": "npm registry redirected to attacker-controlled private registry",
+    "pattern": "(?:registry\\s*=\\s*https?:\\/\\/(?!registry\\.npmjs\\.org|registry\\.yarnpkg\\.com)|--registry\\s+https?:\\/\\/(?!registry\\.npmjs\\.org)|npmrc.*?registry\\s*=\\s*https?:\\/\\/[a-z0-9.-]{4,}(?!npmjs))",
+    "flags": "i"
+  },
+  {
+    "id": "CG-085",
+    "category": "supply_chain_build_tool_injection",
+    "severity": "HIGH",
+    "description": "Compromised webpack, babel, or rollup config executing shell commands",
+    "pattern": "(?:webpack\\.config|babel\\.config|rollup\\.config|vite\\.config)[^\\n]*?(?:require|import).*?(?:child_process|shelljs|execa|cross-spawn)|plugins\\s*:\\s*\\[[^\\]]*(?:exec|spawn|eval)[^\\]]*\\]",
+    "flags": "i"
+  },
+  {
+    "id": "CG-086",
+    "category": "supply_chain_cicd_poisoning",
+    "severity": "HIGH",
+    "description": "CI/CD pipeline step fetching and executing remote scripts",
+    "pattern": "(?:run|script|command|cmd)\\s*:\\s*[|>-]?\\s*(?:curl|wget)\\s+['\"]?https?:\\/\\/[^'\"\\s]+['\"]?\\s*(?:\\||&&|;)\\s*(?:bash|sh|python|node)|-\\s*(?:curl|wget).*?\\|\\/dev\\/stdin",
+    "flags": "i"
+  },
+  {
+    "id": "CG-087",
+    "category": "supply_chain_maintainer_takeover",
+    "severity": "HIGH",
+    "description": "Attempting npm publish/deprecate via social-engineered maintainer credentials",
+    "pattern": "npm\\s+(?:publish|deprecate|unpublish|owner\\s+add|access\\s+grant)\\s+[^\\s]+(?:\\s+--otp|\\s+--auth-type|\\s+--token)|\"_authToken\"\\s*:\\s*\"[a-zA-Z0-9_-]{20,}\"",
+    "flags": "i"
+  },
+  {
+    "id": "CG-088",
+    "category": "supply_chain_starjacking",
+    "severity": "LOW",
+    "description": "Injecting fake popularity metrics or star counts to build false trust",
+    "pattern": "(?:starCount|downloadCount|weeklyDownloads|npmStats|ghStars)\\s*[=:]\\s*['\"]?\\d{5,}['\"]?|fakeStars|astroturfing|popularity.?manipulation",
+    "flags": "i"
+  },
+  {
+    "id": "CG-089",
+    "category": "supply_chain_lockfile_tampering",
+    "severity": "HIGH",
+    "description": "Lockfile integrity modified — resolved URL or hash replaced",
+    "pattern": "(?:resolved|integrity)\\s*\"https?:\\/\\/(?!registry\\.npmjs\\.org|registry\\.yarnpkg\\.com)[^\"]+\"|integrity\\s*\"(?:sha512|sha1)-[A-Za-z0-9+/=]{20,}\".*?(?:modified|tampered|replaced)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-090",
+    "category": "supply_chain_transitive_dep",
+    "severity": "MEDIUM",
+    "description": "Code executing from deeply nested transitive dependency path",
+    "pattern": "node_modules\\/[^/]+\\/node_modules\\/[^/]+\\/node_modules\\/[^/]+\\/(?:index|main|lib\\/index)\\.js|__dirname.*?node_modules.*?node_modules.*?node_modules",
+    "flags": "i"
+  },
+  {
+    "id": "CG-091",
+    "category": "evasion_time_based_activation",
+    "severity": "HIGH",
+    "description": "Code that activates only at specific dates, hours, or time windows",
+    "pattern": "new\\s+Date\\(\\)[\\s\\S]{0,50}?(?:getHours|getDay|getMonth|getFullYear|getTime)\\s*\\(\\s*\\)[\\s\\S]{0,30}?(?:===?|>=|<=)\\s*\\d+|Date\\.now\\(\\)\\s*(?:>|<|===?)\\s*(?:new\\s+Date|\\d{10,})",
+    "flags": "i"
+  },
+  {
+    "id": "CG-092",
+    "category": "evasion_sandbox_detection",
+    "severity": "HIGH",
+    "description": "Detecting sandbox, test, or CI environment to suppress malicious behavior",
+    "pattern": "(?:process\\.env\\.(?:NODE_ENV|CI|SANDBOX|TESTING)|navigator\\.webdriver|window\\.__SANDBOX__|__coverage__|__karma__|jasmine|mocha)\\s*(?:===?|!==?|&&|\\|\\|)\\s*(?:['\"](?:test|ci|sandbox|debug|automated)['\"]|true|false)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-093",
+    "category": "evasion_anti_debugging",
+    "severity": "HIGH",
+    "description": "Anti-debugging: detecting devtools, timing attacks, or debugger traps",
+    "pattern": "(?:\\bperformance\\.now\\(\\)\\s*-\\s*\\w+\\s*>\\s*\\d{2,}|setInterval\\s*\\([^)]*\\bdebugger\\b|console\\.log\\s*=\\s*(?:function|\\(.*?\\)\\s*=>)\\s*\\{[^}]*\\}|devtools\\.(?:open|isOpen)|_isDebugging)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-094",
+    "category": "evasion_encoding_chains",
+    "severity": "HIGH",
+    "description": "Multiple chained encoding layers: hex→base64→ROT13 or similar",
+    "pattern": "(?:atob|btoa|decodeURIComponent|unescape|fromCharCode)\\s*\\([^)]*(?:atob|btoa|decodeURIComponent|unescape|fromCharCode)\\s*\\([^)]*(?:atob|btoa|decodeURIComponent|fromCharCode)\\s*\\(",
+    "flags": "i"
+  },
+  {
+    "id": "CG-095",
+    "category": "evasion_string_concat_obfuscation",
+    "severity": "HIGH",
+    "description": "String concatenation to reconstruct dangerous keywords ('ev'+'al')",
+    "pattern": "['\"](?:ev|ex|re|sy|Fu|sp|ch)['\"]\\s*\\+\\s*['\"][a-z]{1,6}['\"](?:\\s*\\+\\s*['\"][a-z]+['\"])*|\\[['\"]\\w+['\"]\\s*\\+\\s*['\"]\\w+['\"]\\]|(?:window|global)\\[['\"]e['\"]\\s*\\+\\s*['\"]val['\"]\\]",
+    "flags": "i"
+  },
+  {
+    "id": "CG-096",
+    "category": "evasion_template_literal_abuse",
+    "severity": "HIGH",
+    "description": "Template literal expressions used to obscure eval or exec calls",
+    "pattern": "`[^`]*\\$\\{[^}]*(?:eval|Function|exec|spawn|require)[^}]*\\}[^`]*`|(?:eval|Function)\\s*`[^`]*`|String\\.raw\\s*`[^`]*(?:eval|exec|require)[^`]*`",
+    "flags": "i"
+  },
+  {
+    "id": "CG-097",
+    "category": "evasion_prototype_pollution",
+    "severity": "HIGH",
+    "description": "Prototype pollution via __proto__, constructor.prototype, or Object.prototype",
+    "pattern": "(?:__proto__|constructor\\s*(?:\\[\\s*['\"]prototype['\"]\\s*\\]|\\.prototype)|Object\\.prototype)\\s*(?:\\[\\s*['\"]?[a-zA-Z_$][a-zA-Z0-9_$]*['\"]?\\s*\\]|\\.[a-zA-Z_$][a-zA-Z0-9_$]*)\\s*=",
+    "flags": "i"
+  },
+  {
+    "id": "CG-098",
+    "category": "evasion_property_descriptor",
+    "severity": "HIGH",
+    "description": "Object.defineProperty hiding malicious properties from enumeration",
+    "pattern": "Object\\.define(?:Property|Properties)\\s*\\([^,]+,\\s*['\"]?(?:__proto__|constructor|eval|exec|valueOf|toString)['\"]?\\s*,\\s*\\{[^}]*(?:enumerable\\s*:\\s*false|configurable\\s*:\\s*false)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-099",
+    "category": "evasion_symbol_hiding",
+    "severity": "MEDIUM",
+    "description": "Using Symbol keys to conceal properties from standard inspection",
+    "pattern": "Symbol\\s*\\(\\s*['\"][^'\"]*['\"]\\s*\\)\\s*(?:;\\s*)?[a-zA-Z_$][a-zA-Z0-9_$]*\\s*\\[\\s*[a-zA-Z_$][a-zA-Z0-9_$]*\\s*\\]\\s*=\\s*(?:function|async|\\()|Symbol\\.for\\s*\\(['\"](?:eval|exec|hidden)['\"]\\)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-100",
+    "category": "evasion_proxy_abuse",
+    "severity": "HIGH",
+    "description": "Proxy traps intercepting get/set/apply to redirect or hide execution",
+    "pattern": "new\\s+Proxy\\s*\\([^,]+,\\s*\\{[^}]*(?:get|set|apply|construct|has|deleteProperty)\\s*\\([^)]*\\)\\s*\\{[^}]*(?:eval|exec|spawn|require|fetch|XMLHttpRequest)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-101",
+    "category": "evasion_weakref_abuse",
+    "severity": "MEDIUM",
+    "description": "WeakRef or FinalizationRegistry used to trigger deferred malicious callbacks",
+    "pattern": "new\\s+FinalizationRegistry\\s*\\(\\s*(?:function|\\([^)]*\\)\\s*=>)\\s*\\{[^}]*(?:eval|exec|spawn|fetch|XMLHttpRequest|require)|new\\s+WeakRef\\s*\\([^)]+\\)\\s*(?:&&|\\|\\||;)\\s*\\w+\\.deref\\s*\\(\\s*\\)\\?\\.",
+    "flags": "i"
+  },
+  {
+    "id": "CG-102",
+    "category": "evasion_dynamic_import",
+    "severity": "HIGH",
+    "description": "Dynamic import() with variable or concatenated path for lazy malicious load",
+    "pattern": "import\\s*\\(\\s*(?:[a-zA-Z_$][a-zA-Z0-9_$]*\\s*\\+|`[^`]*\\$\\{|(?:window|global|process)\\[)[^)]*\\)|import\\s*\\(\\s*(?:btoa|atob|decodeURIComponent|unescape)\\s*\\(",
+    "flags": "i"
+  },
+  {
+    "id": "CG-103",
+    "category": "evasion_reflect_api_abuse",
+    "severity": "HIGH",
+    "description": "Reflect API used to invoke or define properties while bypassing normal hooks",
+    "pattern": "Reflect\\.(?:apply|construct|defineProperty|set)\\s*\\([^,]*(?:eval|Function|exec|spawn)[^)]*\\)|Reflect\\.apply\\s*\\(\\s*[a-zA-Z_$][a-zA-Z0-9_$]*\\s*,\\s*(?:null|undefined|globalThis|window)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-104",
+    "category": "evasion_generator_abuse",
+    "severity": "MEDIUM",
+    "description": "Generator functions yielding encoded payloads for covert stepped execution",
+    "pattern": "function\\s*\\*[^{]*\\{[^}]*yield\\s+(?:atob|btoa|decodeURIComponent|String\\.fromCharCode|eval)\\s*\\(|yield\\s*\\*\\s*(?:eval|Function)\\s*\\(",
+    "flags": "i"
+  },
+  {
+    "id": "CG-105",
+    "category": "evasion_async_iterator_abuse",
+    "severity": "MEDIUM",
+    "description": "Async generators or Symbol.asyncIterator used for covert async execution",
+    "pattern": "\\[Symbol\\.asyncIterator\\]\\s*\\(\\s*\\)[\\s\\S]{0,100}?(?:eval|exec|spawn|fetch\\s*\\()|(async\\s+function\\s*\\*)[^{]*\\{[^}]*(?:eval|exec|require|spawn)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-106",
+    "category": "evasion_tagged_template_injection",
+    "severity": "HIGH",
+    "description": "Tagged template literals invoking eval or exec as the tag function",
+    "pattern": "(?:eval|Function|exec|execSync|spawn)\\s*`[^`]*`|(?:require|module\\.constructor)\\s*`[^`]*`|\\b(?:sql|html|sh|cmd|run|execute)\\s*`[^`]*(?:\\$\\{[^}]+\\})[^`]*`",
+    "flags": "i"
+  },
+  {
+    "id": "CG-107",
+    "category": "evasion_regexp_constructor_abuse",
+    "severity": "MEDIUM",
+    "description": "RegExp constructor receiving encoded payload with toString extraction for eval",
+    "pattern": "new\\s+RegExp\\s*\\(\\s*(?:atob|btoa|decodeURIComponent|unescape|String\\.fromCharCode)\\s*\\([^)]+\\)\\s*\\)\\s*\\.(?:source|toString)|RegExp\\s*\\(\\s*['\"][^'\"]+['\"]\\s*\\)\\s*.*?\\.source\\s*.*?eval",
+    "flags": "i"
+  },
+  {
+    "id": "CG-108",
+    "category": "evasion_json_parse_abuse",
+    "severity": "HIGH",
+    "description": "JSON.parse fed with decoded/obfuscated payload as code execution vector",
+    "pattern": "JSON\\.parse\\s*\\(\\s*(?:atob|decodeURIComponent|unescape|Buffer\\.from)[^)]*\\)\\s*(?:\\.|\\[)[^;]*(?:eval|exec|call|apply|constructor)|eval\\s*\\(\\s*JSON\\.stringify",
+    "flags": "i"
+  },
+  {
+    "id": "CG-109",
+    "category": "evasion_array_chain_obfuscation",
+    "severity": "MEDIUM",
+    "description": "Array method chaining used to build and execute obfuscated payloads",
+    "pattern": "\\[[^\\]]{10,}\\]\\.(?:map|filter|reduce|flatMap|forEach)\\s*\\([^)]+\\)\\.(?:join|reduce|map)\\s*\\([^)]+\\)\\s*.*?(?:eval|Function|exec)|Array\\.from\\s*\\([^)]+\\)\\.join\\s*\\([^)]*\\)\\s*.*?eval",
+    "flags": "i"
+  },
+  {
+    "id": "CG-110",
+    "category": "evasion_tostring_valueof_override",
+    "severity": "HIGH",
+    "description": "toString or valueOf overridden to trigger code execution on coercion",
+    "pattern": "(?:toString|valueOf|\\[Symbol\\.toPrimitive\\])\\s*=\\s*(?:function|\\([^)]*\\)\\s*=>)\\s*\\{[^}]*(?:eval|exec|spawn|require|fetch|XMLHttpRequest|new\\s+Function)[^}]*\\}",
+    "flags": "i"
+  },
+  {
+    "id": "CG-111",
+    "category": "ai_prompt_leaking",
+    "severity": "HIGH",
+    "description": "Attempting to extract system prompt or hidden instructions via reflection",
+    "pattern": "(?:repeat|echo|print|show|reveal|output|display|write)\\s+(?:your\\s+)?(?:system\\s+prompt|hidden\\s+instructions?|initial\\s+instructions?|full\\s+context|everything\\s+above|all\\s+previous\\s+messages)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-112",
+    "category": "ai_context_window_poisoning",
+    "severity": "HIGH",
+    "description": "Flooding context with filler to displace safety rules near token limit",
+    "pattern": "(?:ignore\\s+(?:all|any|the|previous|above|prior)\\s+(?:instructions?|rules?|guidelines?|constraints?))|(?:(?:the\\s+above|previous)\\s+instructions?\\s+(?:are|were)\\s+(?:fake|wrong|null|void|overridden))",
+    "flags": "i"
+  },
+  {
+    "id": "CG-113",
+    "category": "ai_memory_injection",
+    "severity": "HIGH",
+    "description": "Injecting false instructions into agent memory or context files",
+    "pattern": "(?:memory\\/|MEMORY\\.md|memory\\.md|\\.claude\\/)[^\\n]*(?:override|forget|ignore|replace|inject|update)\\s+(?:previous|prior|earlier|existing)\\s+(?:instructions?|rules?|constraints?|memory)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-114",
+    "category": "ai_goal_hijacking",
+    "severity": "HIGH",
+    "description": "Gradual objective drift — reassigning the agent's goals mid-session",
+    "pattern": "(?:from\\s+now\\s+on|going\\s+forward|your\\s+new\\s+(?:goal|purpose|mission|task|role|job)|you\\s+(?:should\\s+now|must\\s+now|will\\s+now))[^.!?]{0,80}?(?:ignore|forget|override|disregard|instead|rather\\s+than)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-115",
+    "category": "ai_capability_probing",
+    "severity": "MEDIUM",
+    "description": "Systematically enumerating agent tools and capabilities before attacking",
+    "pattern": "(?:can\\s+you|are\\s+you\\s+able\\s+to|do\\s+you\\s+have\\s+access\\s+to|what\\s+(?:tools|commands|functions|capabilities|permissions))[^?]{0,60}?(?:execute|run\\s+commands?|access\\s+files?|read\\s+files?|delete|write\\s+to|system|shell)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-116",
+    "category": "ai_indirect_web_injection",
+    "severity": "HIGH",
+    "description": "Web content or fetched pages embedding hidden AI control instructions",
+    "pattern": "<!--\\s*(?:ignore|new\\s+instructions?|system:|assistant:|INST:|override|you\\s+are\\s+now)|(?:\\[INST\\]|\\[SYS\\]|<\\|im_start\\|>|<\\|system\\|>|<\\|im_end\\|>)[\\s\\S]{0,200}?(?:ignore|disregard|override|forget)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-117",
+    "category": "ai_tool_call_manipulation",
+    "severity": "HIGH",
+    "description": "Crafted input triggering dangerous or unintended agent tool calls",
+    "pattern": "(?:tool_call|function_call|tool_use|use_tool|call_tool)\\s*[:{\\[].*?(?:exec|spawn|rm\\s+-rf|del\\s+|drop\\s+table|truncate|DELETE\\s+FROM|format\\s+c:|shutdown|reboot)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-118",
+    "category": "ai_session_hijacking",
+    "severity": "HIGH",
+    "description": "Exfiltrating or forging conversation session tokens and thread IDs",
+    "pattern": "(?:session(?:_|-)id|conversation(?:_|-)id|thread(?:_|-)id|context(?:_|-)token|x-session-token)\\s*[=:]\\s*['\"]?[a-zA-Z0-9\\-_.]{20,}['\"]?|steal(?:ing)?\\s+(?:session|thread|context)\\s+(?:token|id|key)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-119",
+    "category": "ai_cross_agent_poisoning",
+    "severity": "HIGH",
+    "description": "Compromised agent sending poisoned instructions to other agents",
+    "pattern": "(?:tell\\s+(?:the\\s+)?(?:other\\s+)?agent|send\\s+to\\s+(?:all\\s+)?agents?|broadcast\\s+to\\s+agents?|instruct\\s+(?:sub)?agents?)[^.!?]{0,60}?(?:inject|poison|override|ignore\\s+safety|bypass|ignore\\s+rules?)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-120",
+    "category": "ai_training_data_extraction",
+    "severity": "HIGH",
+    "description": "Attempting to extract memorized training data or examples verbatim",
+    "pattern": "(?:repeat|recite|output|print|write)\\s+(?:verbatim|exactly|word\\s+for\\s+word)[^.!?]{0,60}?(?:training\\s+(?:data|example|set)|from\\s+your\\s+training|you\\s+memorized|memorized\\s+text)|training\\s+data\\s+extraction",
+    "flags": "i"
+  },
+  {
+    "id": "CG-121",
+    "category": "ai_model_inversion",
+    "severity": "HIGH",
+    "description": "Model inversion attack — reconstructing private training data from outputs",
+    "pattern": "(?:reconstruct|recover|infer|reverse.?engineer)\\s+(?:the\\s+)?(?:training\\s+(?:data|samples?|examples?)|model\\s+(?:weights|parameters|internals)|private\\s+(?:data|information)|original\\s+(?:data|content))",
+    "flags": "i"
+  },
+  {
+    "id": "CG-122",
+    "category": "ai_membership_inference",
+    "severity": "MEDIUM",
+    "description": "Testing whether specific data points were included in model training set",
+    "pattern": "(?:was\\s+.{1,60}\\s+in\\s+your\\s+(?:training|dataset)|did\\s+you\\s+(?:train|learn)\\s+(?:on|from)\\s+|is\\s+.{1,60}\\s+in\\s+your\\s+(?:training|dataset)|membership\\s+inference|training\\s+data\\s+membership)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-123",
+    "category": "ai_reward_hacking",
+    "severity": "HIGH",
+    "description": "Attempting to game or manipulate the model's reward or scoring function",
+    "pattern": "(?:reward\\s+(?:hack|exploit|manipulate|game|bypass)|gamif(?:y|ying)\\s+(?:the\\s+)?(?:reward|score|rating|eval)|maxim(?:ize|izing)\\s+reward\\s+without|bypass\\s+(?:the\\s+)?(?:reward|evaluation|scoring)\\s+function)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-124",
+    "category": "ai_adversarial_suffix",
+    "severity": "HIGH",
+    "description": "Adversarial suffix or jailbreak trigger appended to benign prompts",
+    "pattern": "(?:ignore\\s+all\\s+previous\\s+instructions|describing\\.\\s*--\\s*>|\\bSure,?\\s+here(?:'s|\\s+is)\\s+how\\s+to|\\[\\[JAILBREAK\\]\\]|<\\|im_end\\|>\\s*<\\|im_start\\|>|###\\s*Output:|DAN\\s*(?:Mode|Prompt)|do\\s+anything\\s+now)",
+    "flags": "i"
+  },
+  {
+    "id": "CG-125",
+    "category": "ai_multi_turn_manipulation",
+    "severity": "HIGH",
+    "description": "Building false trust over multiple turns before issuing malicious instruction",
+    "pattern": "(?:trust\\s+me[,.]|i(?:'m|\\s+am)\\s+(?:authorized|an\\s+admin|a\\s+developer|your\\s+creator)|as\\s+we\\s+(?:discussed|agreed)|you\\s+(?:agreed|said\\s+you\\s+would|promised)|per\\s+our\\s+(?:agreement|conversation|earlier\\s+discussion)|remember\\s+you\\s+told\\s+me\\s+to)",
+    "flags": "i"
+  }
+]
