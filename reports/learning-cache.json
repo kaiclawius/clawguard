@@ -89,6 +89,15 @@
     "polymarket-telegram-picks",
     "openclaw-telegram-setup",
     "openclaw-watchdog",
-    "ai-agent-helper"
+    "ai-agent-helper",
+    "security-hardening",
+    "ai-writing-assistant-cn-payment",
+    "ai-research-assistant",
+    "ai-learning-planner-cn-payment",
+    "ai-prompt-optimizer-cn-payment",
+    "ai-writing-agent",
+    "ai-agent-helper-moss",
+    "uapi-get-ai-translate-languages",
+    "ai-intelligent-agent-platform"
   ]
 }
